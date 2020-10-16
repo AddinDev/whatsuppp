@@ -21,6 +21,8 @@
 		042E8AFF2539354800EDC624 /* MainContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042E8AFE2539354800EDC624 /* MainContainer.swift */; };
 		042E8B0325393A0500EDC624 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042E8B0225393A0500EDC624 /* SettingsView.swift */; };
 		042E8B0625393CFB00EDC624 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042E8B0525393CFB00EDC624 /* ProfileView.swift */; };
+		042E8B09253946FE00EDC624 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042E8B08253946FE00EDC624 /* User.swift */; };
+		042E8B0E2539482000EDC624 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042E8B0D2539482000EDC624 /* Networking.swift */; };
 		209AA65945F84298DB4BB421 /* Pods_whatsup.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEA3C8EA7DF3B455A8B512F6 /* Pods_whatsup.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +43,8 @@
 		042E8AFE2539354800EDC624 /* MainContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContainer.swift; sourceTree = "<group>"; };
 		042E8B0225393A0500EDC624 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		042E8B0525393CFB00EDC624 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		042E8B08253946FE00EDC624 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		042E8B0D2539482000EDC624 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		304ACC104F1F8D283884D9ED /* Pods-whatsup.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-whatsup.release.xcconfig"; path = "Target Support Files/Pods-whatsup/Pods-whatsup.release.xcconfig"; sourceTree = "<group>"; };
 		5DA5C6B8DC5BFB56CBBC7F32 /* Pods-whatsup.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-whatsup.debug.xcconfig"; path = "Target Support Files/Pods-whatsup/Pods-whatsup.debug.xcconfig"; sourceTree = "<group>"; };
 		AEA3C8EA7DF3B455A8B512F6 /* Pods_whatsup.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_whatsup.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -83,6 +87,7 @@
 				042E8AC025391EB500EDC624 /* SceneDelegate.swift */,
 				042E8AD325392C8B00EDC624 /* View */,
 				042E8AD825392D3D00EDC624 /* Main */,
+				042E8B0B2539470100EDC624 /* Model */,
 				042E8AC425391EB500EDC624 /* Assets.xcassets */,
 				042E8AC925391EB500EDC624 /* LaunchScreen.storyboard */,
 				042E8ACC25391EB500EDC624 /* Info.plist */,
@@ -120,6 +125,15 @@
 				042E8B0525393CFB00EDC624 /* ProfileView.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		042E8B0B2539470100EDC624 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				042E8B08253946FE00EDC624 /* User.swift */,
+				042E8B0D2539482000EDC624 /* Networking.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		C4F9E549750CEDEFF76C6D53 /* Pods */ = {
@@ -257,6 +271,7 @@
 				042E8AFC253934B900EDC624 /* IntroView.swift in Sources */,
 				042E8AD625392CC900EDC624 /* ChatsView.swift in Sources */,
 				042E8B0625393CFB00EDC624 /* ProfileView.swift in Sources */,
+				042E8B0E2539482000EDC624 /* Networking.swift in Sources */,
 				042E8ABF25391EB500EDC624 /* AppDelegate.swift in Sources */,
 				042E8B0325393A0500EDC624 /* SettingsView.swift in Sources */,
 				042E8AC125391EB500EDC624 /* SceneDelegate.swift in Sources */,
@@ -264,6 +279,7 @@
 				042E8AFF2539354800EDC624 /* MainContainer.swift in Sources */,
 				042E8AF625392E2300EDC624 /* LoginView.swift in Sources */,
 				042E8AC325391EB500EDC624 /* ContentView.swift in Sources */,
+				042E8B09253946FE00EDC624 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

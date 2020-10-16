@@ -10,12 +10,16 @@ import SwiftUI
 struct SettingsView: View {
     @Binding var isLogged: Bool
     var body: some View {
-        VStack {
-            Button("Logout") {
-                withAnimation {
-                    self.isLogged = false
+        NavigationView {
+            VStack {
+                Form {
+                    Section {
+                        NavigationLink("addjn", destination: ProfileView())
+                    }
+
                 }
             }
+            .navigationTitle("Settings")
         }
     }
 }

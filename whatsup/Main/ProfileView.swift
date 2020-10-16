@@ -6,8 +6,10 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct ProfileView: View {
+    let db = Firestore.firestore()
     var body: some View {
         VStack {
             Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
