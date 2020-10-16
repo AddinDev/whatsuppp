@@ -9,16 +9,22 @@ import SwiftUI
 import Firebase
 
 struct ProfileView: View {
+    var user: User
     let db = Firestore.firestore()
+    @State var name = ""
     var body: some View {
         VStack {
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+            TextField("\(user.name)", text: $name, onCommit: {
+                db.collection("User").document(Auth.auth().currentUser!.uid).updateData(["name": self.name]) { error in
+                    if error != nil {
+                        print(error!.localizedDescription)
+                    }
+                }
+            })
         }
+        .navigationTitle("Edit Profile")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
-struct ProfileView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProfileView()
-    }
-}
+

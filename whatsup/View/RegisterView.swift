@@ -38,7 +38,7 @@ struct RegisterView: View {
                     } else {
                         print("registered")
                         
-                        db.collection("User").addDocument(data: [
+                        db.collection("User").document(Auth.auth().currentUser!.uid).setData([
                             "name": self.name,
                             "phone": self.phone,
                             "email": self.email,
