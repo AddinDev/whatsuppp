@@ -11,6 +11,7 @@ import Firebase
 struct LoginView: View {
     @Binding var isLogged: Bool
     @State var email = ""
+    
     @State var password = ""
     var body: some View {
         VStack {
