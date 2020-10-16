@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct SettingsView: View {
+    @Binding var isLogged: Bool
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Button("Logout") {
+                withAnimation {
+                    self.isLogged = false
+                }
+            }
+        }
     }
 }
 
-struct SettingsView_Previews: PreviewProvider {
-    static var previews: some View {
-        SettingsView()
-    }
-}

@@ -15,6 +15,9 @@ struct MainContainer: View {
             ChatsView().tabItem {
                 Text("Chats")
             }.tag(0)
+            SettingsView(isLogged: self.$isLogged).tabItem {
+                Text("Settings")
+            }.tag(1)
         }
     }
 }

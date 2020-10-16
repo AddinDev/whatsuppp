@@ -20,6 +20,7 @@
 		042E8AFC253934B900EDC624 /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042E8AFB253934B900EDC624 /* IntroView.swift */; };
 		042E8AFF2539354800EDC624 /* MainContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042E8AFE2539354800EDC624 /* MainContainer.swift */; };
 		042E8B0325393A0500EDC624 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042E8B0225393A0500EDC624 /* SettingsView.swift */; };
+		042E8B0625393CFB00EDC624 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042E8B0525393CFB00EDC624 /* ProfileView.swift */; };
 		209AA65945F84298DB4BB421 /* Pods_whatsup.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEA3C8EA7DF3B455A8B512F6 /* Pods_whatsup.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,7 @@
 		042E8AFB253934B900EDC624 /* IntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
 		042E8AFE2539354800EDC624 /* MainContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContainer.swift; sourceTree = "<group>"; };
 		042E8B0225393A0500EDC624 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		042E8B0525393CFB00EDC624 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		304ACC104F1F8D283884D9ED /* Pods-whatsup.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-whatsup.release.xcconfig"; path = "Target Support Files/Pods-whatsup/Pods-whatsup.release.xcconfig"; sourceTree = "<group>"; };
 		5DA5C6B8DC5BFB56CBBC7F32 /* Pods-whatsup.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-whatsup.debug.xcconfig"; path = "Target Support Files/Pods-whatsup/Pods-whatsup.debug.xcconfig"; sourceTree = "<group>"; };
 		AEA3C8EA7DF3B455A8B512F6 /* Pods_whatsup.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_whatsup.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,6 +117,7 @@
 				042E8AD525392CC900EDC624 /* ChatsView.swift */,
 				042E8AFE2539354800EDC624 /* MainContainer.swift */,
 				042E8B0225393A0500EDC624 /* SettingsView.swift */,
+				042E8B0525393CFB00EDC624 /* ProfileView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -253,6 +256,7 @@
 			files = (
 				042E8AFC253934B900EDC624 /* IntroView.swift in Sources */,
 				042E8AD625392CC900EDC624 /* ChatsView.swift in Sources */,
+				042E8B0625393CFB00EDC624 /* ProfileView.swift in Sources */,
 				042E8ABF25391EB500EDC624 /* AppDelegate.swift in Sources */,
 				042E8B0325393A0500EDC624 /* SettingsView.swift in Sources */,
 				042E8AC125391EB500EDC624 /* SceneDelegate.swift in Sources */,
