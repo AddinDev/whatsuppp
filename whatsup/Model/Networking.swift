@@ -15,7 +15,7 @@ class Networking: ObservableObject {
     func getDataUser() {
         self.user = User(email: "", phone: "", name: "", imageUrl: "", status: "", statusUrl: "", statusTime: "")
         
-        db.collection("User").whereField("email", isEqualTo: Auth.auth().currentUser!.email).addSnapshotListener() { (querySnapshot, error) in
+        db.collection("User").whereField("email", isEqualTo: Auth.auth().currentUser?.email).addSnapshotListener() { (querySnapshot, error) in
             if error != nil {
                 print(error!.localizedDescription)
             } else {
