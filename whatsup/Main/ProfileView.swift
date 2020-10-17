@@ -7,10 +7,12 @@
 
 import SwiftUI
 import Firebase
+import URLImage
 
 struct ProfileView: View {
     var user: User
     let db = Firestore.firestore()
+    let defaultImage = "https://firebasestorage.googleapis.com/v0/b/whatsup-27adf.appspot.com/o/default%2Fdefaultpic.jpg?alt=media&token=3e244d8f-f9c2-4680-9c0a-ea17a450a672"
     @State var image: Image?
     @State var inputImage: UIImage?
     @Binding var isLogged: Bool
@@ -38,12 +40,21 @@ struct ProfileView: View {
                     Button(action: {
                         self.showImagePicker = true
                     }) {
-                        Image("defaultpic")
-                            .resizable()
-                            .frame(width: 120, height: 120)
-                            .cornerRadius(100)
-                            .padding(.top, 30)
-                            .padding(.bottom, 15)
+                        URLImage(URL(string: user.imageUrl) ?? URL(string: defaultImage)! ) { proxy in
+                            proxy.image
+                                .resizable()
+                        }
+                        .frame(width: 120, height: 120)
+                        .cornerRadius(100)
+                        .padding(.top, 30)
+                        .padding(.bottom, 15)
+                        
+                        //                        Image("defaultpic")
+                        //                            .resizable()
+                        //                            .frame(width: 120, height: 120)
+                        //                            .cornerRadius(100)
+                        //                            .padding(.top, 30)
+                        //                            .padding(.bottom, 15)
                     }
                 }
                 
@@ -76,14 +87,42 @@ struct ProfileView: View {
         .navigationTitle("Edit Profile")
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarItems(trailing: Button("save") {self.saveData()})
-        .sheet(isPresented: $showImagePicker, onDismiss: loadImage) {
+        .sheet(isPresented: $showImagePicker, onDismiss: saveImage) {
             ImagePicker(image: self.$inputImage)
         }
     }
     
-    func loadImage() {
+    func saveImage() {
+        
         guard let inputImage = inputImage else { return }
         image = Image(uiImage: inputImage)
+        
+        guard let imageData = inputImage.jpegData(compressionQuality: 0.3) else { return }
+        
+        let storageRef = Storage.storage().reference(forURL: "gs://whatsup-27adf.appspot.com")
+        let storageProfileRef = storageRef.child("profile").child(Auth.auth().currentUser!.uid)
+        
+        let metadata = StorageMetadata()
+        metadata.contentType = "image/jpg"
+        
+        storageProfileRef.putData(imageData, metadata: metadata) { (storageMetadata, error) in
+            if error != nil {
+                print(error!.localizedDescription)
+                return
+            }
+            
+            storageProfileRef.downloadURL { (url, error) in
+                if let imageUrl = url?.absoluteString {
+                    print(imageUrl)
+                    db.collection("User").document(Auth.auth().currentUser!.uid).updateData(["imageUrl": imageUrl]) { error in
+                        if error != nil {
+                            print(error!.localizedDescription)
+                        }
+                    }
+                }
+            }
+        }
+        
     }
     
     func saveData() {

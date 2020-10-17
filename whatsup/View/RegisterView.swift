@@ -12,7 +12,7 @@ struct RegisterView: View {
     @Environment(\.presentationMode) var presentationMode
     @Binding var isLogged: Bool
     let db = Firestore.firestore()
-    let imageDefault = "https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.brandeps.com%2Ficon-download%2FP%2FPerson-outline-icon-vector-01.svg&imgrefurl=https%3A%2F%2Fwww.brandeps.com%2Ficon%2FP%2FPerson-outline-01&tbnid=sxpljAQ1TbSeFM&vet=12ahUKEwjc7ZfWkrjsAhXNMCsKHR9dDYUQMyg4egQIARBh..i&docid=t_-ocZWdW2PQcM&w=800&h=800&q=person%20logo&safe=strict&client=opera-gx&ved=2ahUKEwjc7ZfWkrjsAhXNMCsKHR9dDYUQMyg4egQIARBh"
+    let imageDefault = "https://firebasestorage.googleapis.com/v0/b/whatsup-27adf.appspot.com/o/default%2Fdefaultpic.jpg?alt=media&token=3e244d8f-f9c2-4680-9c0a-ea17a450a672"
     @State var name = ""
     @State var phone = ""
     @State var email = ""
