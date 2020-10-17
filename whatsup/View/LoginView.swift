@@ -9,6 +9,7 @@ import SwiftUI
 import Firebase
 
 struct LoginView: View {
+    @Environment(\.presentationMode) var presentationMode
     @Binding var isLogged: Bool
     @State var email = ""
     @State var password = ""
@@ -25,7 +26,11 @@ struct LoginView: View {
                     if error != nil {
                         print(error!.localizedDescription)
                     } else {
-                        print("success")
+                        print("logged")
+                        self.presentationMode.wrappedValue.dismiss()
+                        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+
+                        
                         withAnimation {
                         self.isLogged = true
                             UserDefaults.standard.set(self.isLogged, forKey: "isLogged")

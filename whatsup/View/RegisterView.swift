@@ -9,6 +9,7 @@ import SwiftUI
 import Firebase
 
 struct RegisterView: View {
+    @Environment(\.presentationMode) var presentationMode
     @Binding var isLogged: Bool
     let db = Firestore.firestore()
     let imageDefault = "https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.brandeps.com%2Ficon-download%2FP%2FPerson-outline-icon-vector-01.svg&imgrefurl=https%3A%2F%2Fwww.brandeps.com%2Ficon%2FP%2FPerson-outline-01&tbnid=sxpljAQ1TbSeFM&vet=12ahUKEwjc7ZfWkrjsAhXNMCsKHR9dDYUQMyg4egQIARBh..i&docid=t_-ocZWdW2PQcM&w=800&h=800&q=person%20logo&safe=strict&client=opera-gx&ved=2ahUKEwjc7ZfWkrjsAhXNMCsKHR9dDYUQMyg4egQIARBh"
@@ -48,6 +49,9 @@ struct RegisterView: View {
                             "statusTime": ""
                         ])
                         
+                        self.presentationMode.wrappedValue.dismiss()
+                        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+
                         withAnimation {
                             self.isLogged = true
                             UserDefaults.standard.set(self.isLogged, forKey: "isLogged")

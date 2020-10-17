@@ -14,17 +14,29 @@ struct ProfileView: View {
     @State var name = ""
     var body: some View {
         VStack {
+            HStack {
             TextField("\(user.name)", text: $name, onCommit: {
-                db.collection("User").document(Auth.auth().currentUser!.uid).updateData(["name": self.name]) { error in
-                    if error != nil {
-                        print(error!.localizedDescription)
-                    }
-                }
+                self.saveData()
             })
+                Button("save") {
+                    self.saveData()
+                }
+            }
         }
         .navigationTitle("Edit Profile")
         .navigationBarTitleDisplayMode(.inline)
     }
+    
+    func saveData() {
+        db.collection("User").document(Auth.auth().currentUser!.uid).updateData(["name": self.name]) { error in
+            if error != nil {
+                print(error!.localizedDescription)
+            } else {
+                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+            }
+        }
+    }
+    
 }
 
 
