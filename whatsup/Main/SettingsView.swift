@@ -40,7 +40,7 @@ struct SettingsView: View {
                             self.isLogged = false
                         }
                         self.selected = 0
-                    }
+                    }.foregroundColor(.red)
                 }
                 .listStyle(PlainListStyle())
             }

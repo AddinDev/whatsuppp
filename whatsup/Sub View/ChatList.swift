@@ -17,7 +17,6 @@ struct ChatList: View {
                 .cornerRadius(60)
             VStack {
                 Text("name")
-                    .fontWeight(.heavy)
                 Spacer()
             }.padding()
         }
