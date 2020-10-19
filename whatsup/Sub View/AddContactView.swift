@@ -6,19 +6,65 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct AddContactView: View {
     @Environment(\.presentationMode) var presentationMode
+    @State var phone = ""
+    @State var result = ""
+    let db = Firestore.firestore()
     var body: some View {
         NavigationView {
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-                .navigationBarItems(trailing: Button(action: {
-                    self.presentationMode.wrappedValue.dismiss()
-                }) {
-                    Image(systemName: "xmark")
-                })
+            VStack {
+                Form {
+                    Section(header: Text("phone")) {
+                            
+                            HStack {
+                                TextField("phone number", text: $phone)
+                                    .keyboardType(.numberPad)
+                                Button("Check") {
+                                    self.check()
+                                }
+                            }
+                            
+                    }
+                    if self.result == "ada co" {
+                        Text("\(self.result)")
+                            .foregroundColor(.green)
+                    } else if self.result == "gada co" {
+                        Text("\(self.result)")
+                            .foregroundColor(.red)
+                    }
+                }
+                Spacer()
+            }
+            .navigationBarItems(trailing: Button("Save") {
+                print("save")
+                self.presentationMode.wrappedValue.dismiss()
+                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                
+            })
         }
     }
+    
+    func check() {
+        db.collection("User").whereField("phone", isEqualTo: self.phone).getDocuments { (querySnapshot, error) in
+            if error != nil {
+                print(error!.localizedDescription)
+            } else {
+                if querySnapshot!.documents.count > 0 {
+                    self.result = "ada co"
+                } else {
+                    self.result = "gada co"
+                }
+                //                for doc in querySnapshot!.documents {
+                //                    let data = doc.data()
+                //
+                //                }
+            }
+        }
+    }
+    
 }
 
 struct AddContactView_Previews: PreviewProvider {
