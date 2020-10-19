@@ -19,9 +19,9 @@ struct ProfileView: View {
     @Binding var name: String
     @Binding var email: String
     @Binding var phone: String
-    @State var isMissing = false
+    @Binding var selected: Int
     @State var showImagePicker = false
-    //    @State var isDelete = false
+    @State var isDelete = false
     var body: some View {
         ZStack {
             
@@ -76,17 +76,20 @@ struct ProfileView: View {
                         }
                     }
                 }
+                
+                Button("Delete Account") {
+                    self.isDelete = true
+                    
+                }.foregroundColor(.red)
+                
             }
         }
-        //        .alert(isPresented: $isDelete, content: {
-        //            Alert(title: Text("Confirmation"), message: Text("Are you sure you wanna delete this account?"), primaryButton: .cancel(Text("Cancel")), secondaryButton: .default(Text("Yes")) { self.deleteAccount() })
-        //        })
-        .alert(isPresented: $isMissing, content: {
-            Alert(title: Text("bruh"), message: Text("whatca trayina do?"), dismissButton: .default(Text("ok")))
+        .alert(isPresented: $isDelete, content: {
+            Alert(title: Text("Confirmation"), message: Text("Are you sure you wanna delete this account?"), primaryButton: .cancel(Text("Cancel")), secondaryButton: .default(Text("Yes")) { self.deleteAccount() })
         })
         .navigationTitle("Edit Profile")
         .navigationBarTitleDisplayMode(.inline)
-        .navigationBarItems(trailing: Button("save") {self.saveData()})
+        .navigationBarItems(trailing: Button("Save") {self.saveData()})
         .sheet(isPresented: $showImagePicker, onDismiss: saveImage) {
             ImagePicker(image: self.$inputImage)
         }
@@ -127,7 +130,7 @@ struct ProfileView: View {
     
     func saveData() {
         if self.name == "" && self.phone == "" {
-            self.isMissing = true
+            print("wtf")
         }
         else if self.name != "" && self.phone != "" {
             db.collection("User").document(Auth.auth().currentUser!.uid).updateData(["name": self.name, "phone": self.phone]) { error in
@@ -162,18 +165,24 @@ struct ProfileView: View {
         
     }
     
-    //    func deleteAccount() {
-    //        Auth.auth().currentUser?.delete(completion: { (error) in
-    //            if error != nil {
-    //                print(error!.localizedDescription)
-    //            } else {
-    //                withAnimation {
-    //                    self.isLogged = false
-    //                }
-    //            }
-    //        })
-    //    }
-    
+    func deleteAccount() {
+        db.collection("User").document(Auth.auth().currentUser!.uid).delete { (error) in
+            if error != nil {
+                print(error!.localizedDescription)
+            } else {
+                Auth.auth().currentUser?.delete(completion: { (error) in
+                    if error != nil {
+                        print(error!.localizedDescription)
+                    } else {
+                        self.selected = 0
+                        withAnimation {
+                            self.isLogged = false
+                        }
+                    }
+                })
+            }
+        }
+    }
 }
 
 

@@ -9,16 +9,16 @@ import SwiftUI
 
 struct MainContainer: View {
     @Binding var isLogged: Bool
-    @State var selected = 1
+    @State var selected = 0
     var body: some View {
         TabView(selection: $selected) {
             StatusView().tabItem {
                 Text("Status")
-            }.tag(0)
+            }.tag(1)
             ChatsView().tabItem {
                 Text("Chats")
-            }.tag(1)
-            SettingsView(isLogged: self.$isLogged).tabItem {
+            }.tag(0)
+            SettingsView(selected: self.$selected, isLogged: self.$isLogged).tabItem {
                 Text("Settings")
             }.tag(2)
 

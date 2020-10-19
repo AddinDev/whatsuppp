@@ -25,6 +25,8 @@
 		042E8B0E2539482000EDC624 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042E8B0D2539482000EDC624 /* Networking.swift */; };
 		042E8B1125394C6C00EDC624 /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042E8B1025394C6C00EDC624 /* StatusView.swift */; };
 		047CB44F253AE46A00C6EC7C /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047CB44E253AE46A00C6EC7C /* ImagePicker.swift */; };
+		04B8CF5F253D22CD007F22C7 /* ChatList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B8CF5E253D22CD007F22C7 /* ChatList.swift */; };
+		04B8CF62253D3493007F22C7 /* AddContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B8CF61253D3493007F22C7 /* AddContactView.swift */; };
 		209AA65945F84298DB4BB421 /* Pods_whatsup.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEA3C8EA7DF3B455A8B512F6 /* Pods_whatsup.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +51,8 @@
 		042E8B0D2539482000EDC624 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		042E8B1025394C6C00EDC624 /* StatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
 		047CB44E253AE46A00C6EC7C /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		04B8CF5E253D22CD007F22C7 /* ChatList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatList.swift; sourceTree = "<group>"; };
+		04B8CF61253D3493007F22C7 /* AddContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactView.swift; sourceTree = "<group>"; };
 		304ACC104F1F8D283884D9ED /* Pods-whatsup.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-whatsup.release.xcconfig"; path = "Target Support Files/Pods-whatsup/Pods-whatsup.release.xcconfig"; sourceTree = "<group>"; };
 		5DA5C6B8DC5BFB56CBBC7F32 /* Pods-whatsup.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-whatsup.debug.xcconfig"; path = "Target Support Files/Pods-whatsup/Pods-whatsup.debug.xcconfig"; sourceTree = "<group>"; };
 		AEA3C8EA7DF3B455A8B512F6 /* Pods_whatsup.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_whatsup.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -146,6 +150,8 @@
 			isa = PBXGroup;
 			children = (
 				047CB44E253AE46A00C6EC7C /* ImagePicker.swift */,
+				04B8CF5E253D22CD007F22C7 /* ChatList.swift */,
+				04B8CF61253D3493007F22C7 /* AddContactView.swift */,
 			);
 			path = "Sub View";
 			sourceTree = "<group>";
@@ -292,10 +298,12 @@
 				042E8B0325393A0500EDC624 /* SettingsView.swift in Sources */,
 				042E8AC125391EB500EDC624 /* SceneDelegate.swift in Sources */,
 				042E8AF925392E2D00EDC624 /* RegisterView.swift in Sources */,
+				04B8CF5F253D22CD007F22C7 /* ChatList.swift in Sources */,
 				042E8AFF2539354800EDC624 /* MainContainer.swift in Sources */,
 				042E8AF625392E2300EDC624 /* LoginView.swift in Sources */,
 				042E8AC325391EB500EDC624 /* ContentView.swift in Sources */,
 				042E8B09253946FE00EDC624 /* User.swift in Sources */,
+				04B8CF62253D3493007F22C7 /* AddContactView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
