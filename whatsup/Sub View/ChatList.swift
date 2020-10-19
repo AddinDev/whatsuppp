@@ -6,17 +6,21 @@
 //
 
 import SwiftUI
+import URLImage
 
 struct ChatList: View {
+    var user: User
     var body: some View {
-    
         HStack {
-            Image("defaultpic")
-                .resizable()
-                .frame(width: 60, height: 60)
-                .cornerRadius(60)
+            URLImage(URL(string: user.imageUrl) ?? URL(string: "https://firebasestorage.googleapis.com/v0/b/whatsup-27adf.appspot.com/o/default%2Fdefaultpic.jpg?alt=media&token=3e244d8f-f9c2-4680-9c0a-ea17a450a672")!) { proxy in
+                proxy.image
+                    .resizable()
+                    .cornerRadius(60)
+            }
+            .frame(width: 60, height: 60)
+            
             VStack {
-                Text("name")
+                Text(user.name)
                 Spacer()
             }.padding()
         }
@@ -25,8 +29,3 @@ struct ChatList: View {
     }
 }
 
-struct ChatList_Previews: PreviewProvider {
-    static var previews: some View {
-        ChatList()
-    }
-}

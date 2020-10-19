@@ -18,15 +18,15 @@ struct AddContactView: View {
             VStack {
                 Form {
                     Section(header: Text("phone")) {
-                            
-                            HStack {
-                                TextField("phone number", text: $phone)
-                                    .keyboardType(.numberPad)
-                                Button("Check") {
-                                    self.check()
-                                }
+                        
+                        HStack {
+                            TextField("phone number", text: $phone)
+                                .keyboardType(.numberPad)
+                            Button("Check") {
+                                self.check()
                             }
-                            
+                        }
+                        
                     }
                     if self.result == "ada co" {
                         Text("\(self.result)")
@@ -39,7 +39,6 @@ struct AddContactView: View {
                 Spacer()
             }
             .navigationBarItems(trailing: Button("Save") {
-                print("save")
                 self.presentationMode.wrappedValue.dismiss()
                 UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                 
@@ -57,10 +56,6 @@ struct AddContactView: View {
                 } else {
                     self.result = "gada co"
                 }
-                //                for doc in querySnapshot!.documents {
-                //                    let data = doc.data()
-                //
-                //                }
             }
         }
     }
