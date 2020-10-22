@@ -46,7 +46,8 @@ struct RegisterView: View {
                             "imageUrl": self.imageDefault,
                             "status": "",
                             "statusUrl": "",
-                            "statusTime": ""
+                            "statusTime": "",
+                            "uid": Auth.auth().currentUser!.uid
                         ])
                         
                         self.presentationMode.wrappedValue.dismiss()

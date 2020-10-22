@@ -16,4 +16,5 @@ struct User: Codable, Identifiable {
     let status: String?
     let statusUrl: String?
     let statusTime: String?
+    let uid: String
 }
